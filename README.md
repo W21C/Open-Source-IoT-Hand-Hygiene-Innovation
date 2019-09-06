@@ -1,1 +1,1 @@
-# Open-Source-IoT-Hand-Hygiene-Innovation
+# Open Source IoT Hand Hygiene Innovation
