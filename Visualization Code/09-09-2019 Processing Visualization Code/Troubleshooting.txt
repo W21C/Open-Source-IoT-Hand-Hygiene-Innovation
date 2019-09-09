@@ -1,0 +1,68 @@
+----------------------------------------------------
+	Set-Up
+----------------------------------------------------
+Make sure your computer is connected to the right WiFi network. 
+
+Keep current file structure, as is in the folder. This includes the software for processing and the code needed to run.
+
+Look for the MQTT implementation in the processing code, in Handwashing.pde
+
+Change this line of code for your MQTT log-in: 
+
+	>> client.connect("mqtt://MQTT_Username:MQTT_Password@IP_Address", "processing1");
+
+
+----------------------------------------------------
+	Libraries not recognized
+----------------------------------------------------
+Make sure the libraries are all in the sketchbook folder:
+
+	>> C:\...\Processing Visualization code\Visualization Code\HandWashing\libraries
+
+A back up of the needed libraries can be found in the following folder:
+	
+	>> C:\...\Processing Visualization code\Libraries
+
+
+After this make sure you sketchbook location is right, you can set the sketchbook location in preferences ( Ctrl + ,) in the Processing IDE. 
+Sketchbook location should be the same as where your code is actually located:
+
+	>> C:\...\Processing Visualization code\Visualization Code\HandWashing
+
+----------------------------------------------------
+	Exporting to .exe
+----------------------------------------------------
+// First of all, only export application on the same operating system (OS) as the final code has to run on (due to dependency differences within different OS). 
+And make sure the code is running on the intended computer. 
+
+Exporting the code is easy, by going to File->Export Application( Ctrl + Shift + E)
+
+----------------------------------------------------
+	Setting up auto-restart
+----------------------------------------------------
+Through experience it is worthwhile to do an auto restart every couple of days, as processing tends to occupy both memory and drive capacity and will slow the computer over time. 
+
+Methods for auto restart depend on the OS of the computer; set it up according to the OS used. 
+
+	Windows 10:
+	----------------
+	1.	To make your computer shut down at a particular time, type taskschd.msc in start search and hit Enter to open the Task Scheduler. 
+	2.	In the right panel, click on Create Basic Task.
+	3. 	Give it a name and a description if you wish and click Next.
+	4. 	When asked When do you want the task to start, select what you want. Click Next.
+	5. 	Select the Start date and time.
+	6.	Clicking Next will bring you to the Action page. Here select Start a program and click Next.
+	7. 	Type shutdown on the Program/script space and /s /f /t 0 in the Add arguments box. If you want the shutdown to commence after say 60 sec, type 60 instead of 0 here.
+	8. 	Click Next to review all and finally click Finish. Your computer will shutdown at the designated day and time.
+	
+
+Once you have this set-up, make sure the HH application restarts automatically. 
+
+	Windows 10:
+	----------------
+	1. 	Copy the following in you address bar in file explorer:
+		>>	%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup
+	2. 	Place shortcut to the created application in this folder. 
+	3. 	Restart the visualization computer and you are done. 
+	
+	
