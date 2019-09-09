@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ModalLabel">Resources
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h4>
+            </div>
+            <div class="modal-body">
+                {{ wtf.quick_form(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="page-header">
+        <h1>Registered Pumps</h1>
+        <table class="table">
+            <tr>
+                <td><h4>PumpID</h4> <h5>Programmed payload on ESP8266.</h5></td>
+                <td><h4>Location</h4> <h5>Previously indicated location.</h5></td>
+            </tr>
+            {% for pump in pumps %}
+            <tr>
+                <td>{{ pump.payload }}</td>
+                <td>{{ pump.location }}</td>
+                <td>
+                    <button class="btn btn-default">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal">
+            Add Pump
+        </button>
+    </div>
+</div>
+
+{% endblock %}
+

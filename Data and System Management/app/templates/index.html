@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .custom-bg {background-color:#5bc0de}
+
+
+</style>
+{% endblock %}
+
+{% block page_content %}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h1>Hand Hygiene</h1>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h3>Data</h3>
+        <img id="mainGraph" : alt="fullPage" width="100%"/>
+        <hr>
+        <table class="table">
+            <tr>
+                <td>Pump</td>
+                <td>Total use</td>
+                <td>Daily average use</td>
+            </tr>
+            {% for each in pumps %}
+            <tr>
+                <td>{{ each }}</td>
+                <td>{{ totals[loop.index-1] }}</td>
+                <td>{{ average[loop.index-1] }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+    <div class="col-md-4">
+        <div class="well">
+            <h3>Request custom dataset</h3>
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+    <div class="col-md-8">
+        <hr>
+        <h1>Battery level</h1>
+        {% for each in battery %}
+        <h3>Pump {{ pumps[loop.index0] }}</h3>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{ each }}" aria-valuemin="0"
+                 aria-valuemax="100" style="width: {{ each }}%;">
+                {{ each }}%
+            </div>
+        </div>
+
+
+        {% endfor %}
+
+    </div>
+    <div class="col-md-4">
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+<script>
+ $(document).ready(function() {
+ var url = "/static/images/mainGraph.png?rnd="+Math.random();
+ $('#mainGraph').attr("src",url);
+ });
+
+
+
+
+
+</script>
+
+{% endblock %}
+
