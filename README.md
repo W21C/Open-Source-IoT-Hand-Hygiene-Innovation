@@ -7,3 +7,10 @@ This projects started at the Emily Carr University of Art + Design (ECUAD) as an
 
 ## W21C
 W21C is a research and innovation initiative based in the University of Calgary (UCalgary) and the Calgary Zone of Alberta Health Services (AHS). W21C conducts health systems research with the overarching mandate to improve patient safety and quality of care. Through this strategic research and innovation agenda, we hope to make care better for our communities, both now and in the future.
+
+# Project Parts
+
+## Sensor Hardware
+## Networking and Message Transmission
+## Data and System Management 
+## Interaction Design Visualizations
