@@ -9,14 +9,14 @@ This projects started at the Emily Carr University of Art + Design (ECUAD) as an
 W21C is a research and innovation initiative based in the University of Calgary (UCalgary) and the Calgary Zone of Alberta Health Services (AHS). W21C conducts health systems research with the overarching mandate to improve patient safety and quality of care. Through this strategic research and innovation agenda, we hope to make care better for our communities, both now and in the future.
 
 # Project Parts
-## Sensor Hardware
+### Sensor Hardware
 Circuit with NodeMCU and code in C using Arduino IDE
 
-## Networking and Message Transmission
+### Networking and Message Transmission
 Messaging and networking using the MQTT protocol. Install with open-source Mosquitto. 
 
-## Data and System Management 
+### Data and System Management 
 Python web application. 
 
-## Interaction Design Visualizations
+### Interaction Design Visualizations
 Visualization in Processing. 
