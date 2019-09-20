@@ -503,8 +503,8 @@ void setup() {
   
   //MQTT IMPLEMENTATION
   client = new MQTTClient(this);
-  // client.connect("mqtt://MQTT_Username:MQTT_Password@IP_Address", "Client_Name");
-  client.connect("mqtt://IP_Address", "Client_Name");
+  client.connect("mqtt://MQTT_Username:MQTT_Password@Broker_IP", "processing1");
+  // client.connect("mqtt://IP_Address", "Client_Name"); //Use this line of code instead of the previous line when you have not set up a username / password
   client.subscribe("pumpID");
   
   // Hands
