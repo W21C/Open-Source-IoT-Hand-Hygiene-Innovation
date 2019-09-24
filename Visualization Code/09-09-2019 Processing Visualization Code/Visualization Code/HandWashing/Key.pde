@@ -6,11 +6,6 @@
 /*KEY LEGEND
   
   GENERAL
-  S = Save
-  R = Reset all
-  D = Daily reset
-  W = Weekly reset
-  M = Monthly reset
   1,2,3,4,5,6 = Trigger for hand sanitizers when useSerial is set to false
   Z = Change Drawstate
   Y = Change Subdrawstate (type of graph)
@@ -32,11 +27,8 @@
 */  
 
 
-
 void keyPressed() {
   println(key);
- 
- 
 
   // Trigger
   if (keyCode == '1' || key == '2' || key == '3' || key == '4' || key == '5' || key == '6' ) {
@@ -71,7 +63,7 @@ void keyPressed() {
       for(int i = 0; i < sanitizers.length; i++) {
         // Id, Color
         sanitizers[i] = new Sanitizer(i, paletteOcean[i], oceanCreatures[i]);
-//        sanitizers[i] = new Sanitizer(i, paletteOcean[int(random(0,6))], oceanCreatures[int(random(0,6))]);
+
       }
     }
   }
@@ -84,7 +76,7 @@ void keyPressed() {
       for(int i = 0; i < sanitizers.length; i++) {
         // Id, Color
         sanitizers[i] = new Sanitizer(i, paletteDogs[i], dogs[i]);
-//          sanitizers[i] = new Sanitizer(i, paletteDogs[int(random(0,6))], dogs[int(random(0,6))]);
+
       }
     }
   }
@@ -97,7 +89,7 @@ void keyPressed() {
       for(int i = 0; i < sanitizers.length; i++) {
         // Id, Color
         sanitizers[i] = new Sanitizer(i, paletteAfrica[i], africanAnimals[i]);
-//        sanitizers[i] = new Sanitizer(i, paletteAfrica[int(random(0,6))], africanAnimals[int(random(0,6))]);
+
       }
     }
   }
@@ -110,7 +102,7 @@ void keyPressed() {
       for(int i = 0; i < sanitizers.length; i++) {
         // Id, Color
         sanitizers[i] = new Sanitizer(i, paletteInsects[i], insects[i]);
-//        sanitizers[i] = new Sanitizer(i, paletteInsects[int(random(0,6))], insects[int(random(0,6))]);
+
       }
     }
   }
@@ -123,7 +115,7 @@ void keyPressed() {
       for(int i = 0; i < sanitizers.length; i++) {
         // Id, Color
         sanitizers[i] = new Sanitizer(i, paletteCanada[i], canadianAnimals[i]);
-//        sanitizers[i] = new Sanitizer(i, paletteCanada[int(random(0,6))], canadianAnimals[int(random(0,6))]);
+
       }
     }
   }
@@ -136,7 +128,7 @@ void keyPressed() {
       for(int i = 0; i < sanitizers.length; i++) {
         // Id, Color
         sanitizers[i] = new Sanitizer(i, paletteTransport[i], transport[i]);
-//        sanitizers[i] = new Sanitizer(i, paletteTransport[int(random(0,6))], transport[int(random(0,6))]);
+
       }
     }
   }
@@ -150,7 +142,7 @@ void keyPressed() {
       for(int i = 0; i < sanitizers.length; i++) {
         // Id, Color
         sanitizers[i] = new Sanitizer(i, paletteGerms[i], germs[i]);
-//        sanitizers[i] = new Sanitizer(i, paletteGerms[int(random(0,6))], germs[int(random(0,6))]);
+
       }
     }
   }
@@ -164,7 +156,7 @@ void keyPressed() {
       for(int i = 0; i < sanitizers.length; i++) {
         // Id, Color
         sanitizers[i] = new Sanitizer(i, palette[i], "Shapes/hand.svg");
-//        sanitizers[i] = new Sanitizer(i, palette[int(random(0,6))], "Shapes/hand.svg");
+
       }
     }
   }
@@ -178,7 +170,7 @@ void keyPressed() {
       for(int i = 0; i < sanitizers.length; i++) {
         // Id, Color
         sanitizers[i] = new Sanitizer(i, paletteFantasy[i], fantasy[i]);
-//        sanitizers[i] = new Sanitizer(i, paletteFantasy[int(random(0,6))], fantasy[int(random(0,6))]);
+
       }
     }
   }

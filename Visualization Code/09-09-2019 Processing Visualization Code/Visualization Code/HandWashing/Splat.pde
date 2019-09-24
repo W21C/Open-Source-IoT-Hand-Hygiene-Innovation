@@ -1,3 +1,4 @@
+
 // -----------------------------
 // SPLAT CLASS
 // -----------------------------
@@ -6,28 +7,19 @@ class TheSplat {
   
   PShape img;
   color c1;
-  color c2 = color(255, 120);
-
+  
   int deviceID;
   
   int xPos;
   int yPos;
-//  int xPos2;
-//  int yPos2;
   int prevX;
   int prevY;
-//  float xspeed;
   float rotation;
-//  int scale1 = 2000;
-//  int scale2 = int(random(150, 500));
   int scale1 = 50;
   int scale2 = int(random(50, 150));
-//  int scale1 = 2500;
-//  int scale2 = int(random(500, 1500));
-
 
   
-    // Constructor for other SVG files
+  // Constructor
   TheSplat(color tempC, int Xpos, int Ypos, int OldX, int OldY, String svgFile) { 
     c1 = tempC;
     xPos = Xpos;

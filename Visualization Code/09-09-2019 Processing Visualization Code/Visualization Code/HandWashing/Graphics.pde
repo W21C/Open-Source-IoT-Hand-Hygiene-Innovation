@@ -3,7 +3,6 @@
 // GRAPHICS
 // -----------------------------
 
-
 void displayCount() {
   pushMatrix(); pushStyle();
   

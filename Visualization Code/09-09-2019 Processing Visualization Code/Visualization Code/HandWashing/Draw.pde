@@ -44,11 +44,11 @@ void draw() {
     
     // Draw States 
     
-    // Day View 
+    // Day View y
     if(subDrawState == 1) {
-      displayVCH(0.25, width * 0.3, height * 0.75);
+      displayW21C(0.25, width * 0.3, height * 0.75);
     }
-    // VCH Logo
+    // ECUAD Logo
     else if(subDrawState == 2) {
       displayECUAD(0.25, width * 0.3, height * 0.75);  
     }
@@ -65,9 +65,9 @@ void draw() {
     
     // Day View 
     if(subDrawState == 1) {
-      displayVCH(0.5, width*0.1, height/4);
+      displayW21C(0.5, width*0.1, height/4);
     }
-    // VCH Logo
+    // ECUAD Logo
     else if(subDrawState == 2) {
       displayECUAD(0.5, width * 0.1, height/4);  
     }
@@ -80,7 +80,7 @@ void draw() {
   
   if(frameCount % 6000 == 0) {
     int fps = round(frameRate);
-    println(" -- VCH Hand Sanitizer Running at " + fps + " FPS -- "); 
+    println(" -- W21C Hand Sanitizer Running at " + fps + " FPS -- "); 
     println(" -- The Time Is " + time + " And Our Free Memory Is " + Runtime.getRuntime().freeMemory()/1024 + " K -- ");
     System.gc();
     println(" -- We Garbage Collected And Our Free Memory Is Now " + Runtime.getRuntime().freeMemory()/1024 + " K -- ");

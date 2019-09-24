@@ -1,3 +1,4 @@
+
 // -----------------------------
 // IMPORTS
 // -----------------------------
@@ -14,8 +15,6 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.awt.event.KeyEvent;
 
-
-
 // -----------------------------
 // DECLARATIONS
 // -----------------------------
@@ -27,7 +26,7 @@ Sanitizer[] sanitizers = new Sanitizer[7];
 
 PFont large, medium, small;
 PImage eculogo;
-PImage vchlogo;
+PImage w21clogo;
 PShape handImg;
 
 
@@ -54,19 +53,9 @@ int subDrawState = 1;
 boolean drawHands = true;
 
 // Hand Counts
-int allHandsThisHour  = 0;
-int allHandsThisDay   = 0;
-int allHandsThisWeek  = 0;
-int allHandsThisMonth = 0;
-int allHandsThisYear  = 0;
 
-int numHandsThisHour[]   = new int[7];
+int allHandsThisDay   = 0;
 int numHandsThisDay[]   = new int[7];
-int numHandsThisWeek[]  = new int[7];
-int numHandsThisMonth[] = new int[7];
-int numHandsPerDayThisMonth[] = new int[31];
-int numHandsPerDayThisWeek[] = new int[7];
-int numHandsThisYear[]  = new int[7]; 
 
 
 // Colours
@@ -82,12 +71,7 @@ color[] palette = {
   color(245,51,71,201)
 };
   
-int colorNumber = 0;
-int newColor;
-color color1 = color(8, 90, 166);
-color unitColors[] = new color[6];
 
-color chartColor = color(255, 0, 255);       // Magenta
 color dropShadowColor = color(7, 89, 164);   // PSD
 color textColor = color(255, 255, 255);
   
@@ -105,18 +89,6 @@ int textPositionX, textPositionY;
 int dailyLabelPositionX, dailyLabelPositionY;
 int weeklyLabelPositionX, weeklyLabelPositionY;
 int monthlyLabelPositionX, monthlyLabelPositionY;
-
-// Text Size
-int countTextSize = 96;
-int dateTextSize = 96;
-int dailyTextSize = 48;
-int weeklyTextSize = 48;
-int monthlyTextSize = 48;
-
-// Labels
-String dailyLabel;
-String weeklyLabel;
-String monthlyLabel;
 
 // Chart
 int baseLineX, baseLineY;
@@ -142,18 +114,9 @@ int count = 0;
 int tempSec = 0;
 int tempMin = 0;
 int lastMin = 0;
-//int maxTempCount = 600;
 int maxTempCount = 60;
-// int maxVerticalHands = 30;
 int maxVerticalHands = 10;
 
-
-
-float a = 2.5, b = 3.144;
-int x = width/2, y = height/2;
- 
-// Opacity
-int op1 = 65;
 
 //Germ implementation variables
 
@@ -166,8 +129,9 @@ int splatterStart;
 int tempSplatSec;
 int maxTempSplatCount = 10;
 
-int value1;
-//Silhouette Themes
+
+
+//THEME SVG's
 
 String[] theme = new String[7];
 color[] themePalette = new color[7];
@@ -369,7 +333,7 @@ String[] germs = {
 //Germ SVG's made by Rachel DiMaio
 
 
-//Theme Color Palettes
+//THEME COLOR PALETTES
 
 color[] paletteAfrica = {
   color(255, 200, 0, 201), 
@@ -474,18 +438,22 @@ color[] paletteDinos = {
 // -----------------------------
 
 void setup() {
-  // Screen
-  //size(displayWidth, displayHeight, JAVA2D);
+  
+  // SCREEN
   fullScreen();
   surface.setResizable(true);
   smooth();
 
-  // Font
+  // FONT
   large  = loadFont("Fonts/Knockout-HTF49-Liteweight-96.vlw"); 
   medium = loadFont("Fonts/Knockout-HTF49-Liteweight-72.vlw"); 
   small  = loadFont("Fonts/Knockout-HTF49-Liteweight-48.vlw"); 
-
   
+  // LOGOS
+  eculogo = loadImage("Logos/EmilyCarr_White_Logo_Large.png");
+  w21clogo = loadImage("Logos/W21C Logo.png");
+ 
+  //TITLE POSITIONS
   textPositionX = int(width * .15);
   textPositionY = int(height * .15);
   datePositionX = int(width - (width * .15));
@@ -498,55 +466,39 @@ void setup() {
   weeklyLabelPositionX = int(width / 2);
   weeklyLabelPositionY = int(height - (height * .15));
   monthlyLabelPositionX = int(width / 2);
-  monthlyLabelPositionY = int(height - (height * .15)); 
+  monthlyLabelPositionY = int(height - (height * .15));
+  
+  // HANDS
+  hands = new ArrayList<TheHand>();
 
   
   //MQTT IMPLEMENTATION
   client = new MQTTClient(this);
   client.connect("mqtt://MQTT_Username:MQTT_Password@Broker_IP", "processing1");
-  // client.connect("mqtt://IP_Address", "Client_Name"); //Use this line of code instead of the previous line when you have not set up a username / password
+  //client.connect("mqtt://IP_Address", "Client_Name"); // Use this line instead of the preveious when you have not set a username or password for your MQTT broker
   client.subscribe("pumpID");
-  
-  // Hands
-  hands = new ArrayList<TheHand>();
- 
-  useGerms = false;
 
   
   //GERM IMPLEMENTATION
+  useGerms = false; // Determines whether the complex germ theme is used upon starting code
   if(useGerms == true){
     splatter = new ArrayList();
     CreateGermArray();
   }
+  if(useGerms == true){
+     splatterStart = millis(); 
+  }
   
   AssignTheme();
-
-  // Logos
-  eculogo = loadImage("Logos/EmilyCarr_White_Logo_Large.png");
-  vchlogo = loadImage("Logos/W21C Logo.png");
- 
   
   // Calendar
   getCalendar();
-
 
   // Misc
   start = millis();
   ellipseMode(CENTER); 
   
-  if(useGerms == true){
-     splatterStart = millis(); 
-  }
-  
-  // Chart
-  baseLineX = textPositionX;
-  baseLineY = int(height - (height * .30));
-  divStartX = textPositionX;
-  divEndX = width - textPositionX;
-  divOneY = int(height - (height * .40));
-  divTwoY = int(height - (height * .50)); 
-  divThreeY = int(height - (height * .60));
-  
+ 
   
   
   println("");

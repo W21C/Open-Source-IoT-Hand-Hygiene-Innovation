@@ -7,10 +7,8 @@ class TheHand {
   
   PShape img;
   color c1;
-  color c2 = color(255, 120);
 
   int deviceID;
-  
   int xPos;
   int yPos;
   int xPos2;
@@ -19,17 +17,13 @@ class TheHand {
   int prevY;
   float xspeed;
   float rotation;
-//  int scale1 = 2000;
-//  int scale2 = int(random(150, 500));
   int scale1;
   int scale2;
   int size1 = 50;
   int size2= 200;
-//  int scale1 = 2500;
-//  int scale2 = int(random(500, 1500));
 
   
-    // Constructor for other SVG files
+  // Constructor 
   TheHand(color tempC, int Xpos, int Ypos, int oldXpos, int oldYpos, String svgFile) { 
     c1 = tempC;
     xPos = Xpos;

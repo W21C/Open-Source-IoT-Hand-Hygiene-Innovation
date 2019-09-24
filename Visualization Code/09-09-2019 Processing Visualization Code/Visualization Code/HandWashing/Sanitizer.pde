@@ -89,15 +89,11 @@ class Sanitizer {
     }
 
     // Update Dataset   
-    updateData(true);
+    updateData();
     
     // Reset Timer
     resetTimer();
       
-    // Animate
-    if(useGerms == false){
-      //anim.start();
-    }
    
     // Reset Boolean & Run Timeout Method
     readyToTrigger = false;
@@ -121,30 +117,21 @@ class Sanitizer {
   // SAVE
   // -----------------------------
 
-  void updateData(boolean overwrite) {
+  void updateData() {
     println(" -- UPDATING DATA -- ");
     
     try {
     
       // Update Counters
-      allHandsThisHour++;
+
       allHandsThisDay++;
-      allHandsThisWeek++;
-      allHandsThisMonth++;
       count++; 
-      
-      numHandsThisHour[deviceID]++;
       numHandsThisDay[deviceID]++;
-      numHandsThisWeek[deviceID]++;
-            println("NHPDTW " + numHandsPerDayThisWeek[6]);
-      //numHandsPerDayThisWeek[deviceID]++; // Below
-      numHandsThisMonth[deviceID]++;
-      numHandsPerDayThisMonth[day()-1]++; // NPE
+
       
-      println(deviceName + " has been triggered " + numHandsThisHour[deviceID] + " times this hour...");
+      // println(deviceName + " has been triggered " + numHandsThisHour[deviceID] + " times this hour...");
       println("Device #" + deviceID + " has been triggered " + numHandsThisDay[deviceID] + " times today...");
       
-      println(allHandsThisDay + " " + allHandsThisWeek + " " + allHandsThisMonth);
     
     }
     catch(Exception e) {
