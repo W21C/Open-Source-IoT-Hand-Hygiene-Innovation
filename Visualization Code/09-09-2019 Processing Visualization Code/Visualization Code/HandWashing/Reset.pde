@@ -35,6 +35,12 @@ void updateDay(boolean resetArray) {
       println("New Daily Count Is " + numHandsThisDay[i]);
     }
   }
+  allHandsThisDay = 0;
+  if(useGerms == false){
+    for(int i = hands.size()-1; i >= 0; i--){
+      hands.remove(i);
+    }
+  }
   
   
 }
