@@ -100,7 +100,7 @@ void loop() {
  
  
  reconnect();
- client.publish("pumpID", "00"); //The letter sent here identifies the pump
+ client.publish("pumpID", "00"); //The number sent here identifies the pump
  Serial.println("Published: 00");
  delay(100);
  client.publish("volt", charBuf); //publishes voltage
