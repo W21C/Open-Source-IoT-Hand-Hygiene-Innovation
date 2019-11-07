@@ -16,9 +16,10 @@ void messageReceived(String topic, byte[] payload) {
   String msg = new String(payload);
   msg = (msg == null) ? null : msg.trim();
   println(msg);
+  String[] components = split(msg, ',');
   Integer temp;
   Integer index;
-  temp = Integer.valueOf(msg);
+  temp = Integer.valueOf(components[0]);
 
   while (temp>6) {
     temp = temp -6;
