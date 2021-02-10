@@ -1,6 +1,6 @@
 # Open Source IoT Hand Hygiene Innovation
 
-This project is in active development, updates can be expected to the code and the tutorial guide.
+This project is in active development. Updates can be expected to the code and the tutorial guide.
 
 ## Project History
 This projects started at the Emily Carr University of Art + Design (ECUAD) as an initiative to bring interaction design to hand hygiene through an open-source solution, with an implementation at Vancouver General Hospital. Through time the project has evolved, and W21C has since taken the lead in the project. In 2017 the project was implemented in a unit at Foothills Medical Centre in Calgary and in 2019 the current version of hardware was implemented in Alberta Children’s Hospital. 
